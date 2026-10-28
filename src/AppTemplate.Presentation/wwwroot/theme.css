@@ -1,0 +1,63 @@
+:root {
+    --app-canvas: var(--mud-palette-background);
+    --app-surface: var(--mud-palette-surface);
+    --app-ink: var(--mud-palette-text-primary);
+    --app-muted: var(--mud-palette-text-secondary);
+    --app-accent: var(--mud-palette-primary);
+    --app-line: var(--mud-palette-divider);
+    --app-font: var(--mud-typography-default-family);
+
+    --app-accent-soft: #edf1ff;
+    --app-empty-state-surface: #eff3fc;
+    --app-hover-surface: #e9edf5;
+    --app-switch-surface: #e9edf3;
+    --app-switch-text: #526078;
+    --app-selected-surface: var(--app-surface);
+    --app-selected-shadow: 0 1px 3px #2432470d;
+
+    --app-inactive-surface: #f0f2f6;
+    --app-active-surface: #edf6f1;
+    --app-active-text: var(--mud-palette-success);
+    --app-inactive-text: var(--app-muted);
+    --app-input-border: #c6cfdd;
+    --app-error-banner-surface: lightyellow;
+
+    --app-dialog-shadow: 0 24px 80px #24324726;
+    --app-error-banner-shadow: 0 -1px 2px rgb(0 0 0 / 0.2);
+    --app-reconnect-surface: var(--app-surface);
+    --app-reconnect-backdrop: rgb(0 0 0 / 0.4);
+    --app-reconnect-shadow: 0 3px 6px 2px rgb(0 0 0 / 0.3);
+    --app-reconnect-action: #6b9ed2;
+    --app-reconnect-action-hover: #3b6ea2;
+    --app-reconnect-action-text: var(--mud-palette-primary-text);
+    --app-reconnect-indicator: #0087ff;
+
+    --app-type-status: 0.75rem;
+    --app-type-caption: 0.8rem;
+    --app-type-small: 0.85rem;
+    --app-type-body: 0.9rem;
+    --app-type-default: 1rem;
+    --app-type-empty-title: 1.15rem;
+    --app-type-dialog-title: 1.4rem;
+    --app-type-page-title: clamp(2.25rem, 5vw, 3rem);
+
+    --app-space-compact: 2px;
+    --app-space-tight: 4px;
+    --app-space-control: 8px;
+    --app-space-inline: 12px;
+    --app-space-group: 16px;
+    --app-space-section: 20px;
+    --app-space-card: 24px;
+    --app-space-dialog: 28px;
+    --app-content-gutter: 36px;
+    --app-content-gutter-mobile: 20px;
+    --app-content-width: 1120px;
+
+    --app-radius-control: 8px;
+    --app-radius-control-small: 7px;
+    --app-radius-status: 6px;
+    --app-radius-selector: 10px;
+    --app-radius-list: 16px;
+    --app-radius-dialog: 18px;
+    --app-radius-empty-icon: 22px;
+}

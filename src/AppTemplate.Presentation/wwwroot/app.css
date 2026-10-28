@@ -1,0 +1,54 @@
+html, body {
+    margin: 0;
+    background: var(--app-canvas);
+    color: var(--app-ink);
+    font-family: var(--app-font);
+}
+
+/* Keep MudBlazor labels in sentence case throughout the application. */
+.mud-button { text-transform: none; }
+.app-header { border-bottom: 1px solid var(--app-line); }
+.app-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--app-space-inline);
+    color: var(--app-ink);
+    font-weight: 600;
+    text-decoration: none;
+}
+.app-content {
+    max-width: var(--app-content-width);
+    margin: 0 auto;
+    padding: var(--app-content-gutter);
+}
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--app-space-card);
+    padding-block: var(--app-content-gutter);
+}
+.welcome-symbol {
+    display: inline-flex;
+    padding: var(--app-space-group);
+    color: var(--app-accent);
+    background: var(--app-accent-soft);
+    border-radius: var(--app-radius-empty-icon);
+}
+.page-title { font-size: var(--app-type-page-title); max-width: 20ch; line-height: 1.15; }
+.welcome-description { color: var(--app-muted); max-width: 55ch; }
+a:focus-visible, button:focus-visible, .mud-button-root:focus-visible {
+    outline: 2px solid var(--app-accent);
+    outline-offset: var(--app-space-tight);
+}
+h1:focus { outline: none; }
+@media (max-width: 600px) {
+    .app-content { padding: var(--app-content-gutter-mobile); }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

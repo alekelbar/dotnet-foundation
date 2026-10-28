@@ -1,0 +1,20 @@
+@page "/"
+@inject ISnackbar Snackbar
+
+<PageTitle>Inicio — Aplicación base</PageTitle>
+
+<section class="welcome" aria-labelledby="welcome-title">
+    <span class="welcome-symbol" aria-hidden="true">
+        <MudIcon Icon="@Icons.Material.Rounded.Layers" Size="Size.Large" />
+    </span>
+    <MudText Typo="Typo.h3" HtmlTag="h1" id="welcome-title" Class="page-title">Tu próximo proyecto empieza aquí.</MudText>
+    <MudText Class="welcome-description">La base está lista. Este espacio espera tu primera funcionalidad.</MudText>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" DropShadow="false" OnClick="VerifyInteraction">
+        Probar interacción
+    </MudButton>
+</section>
+
+@code {
+    private void VerifyInteraction() =>
+        Snackbar.Add("Todo funciona. Podés empezar a construir.", Severity.Success);
+}

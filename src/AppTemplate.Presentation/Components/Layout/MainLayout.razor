@@ -1,0 +1,31 @@
+@inherits LayoutComponentBase
+@using AppTemplate.Presentation.Components.Theming
+
+<MudThemeProvider Theme="_theme" IsDarkMode="false" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0" Class="app-header">
+        <a class="app-brand" href="/" aria-label="Aplicación base, inicio">
+            <MudIcon Icon="@Icons.Material.Rounded.Layers" Color="Color.Primary" />
+            <span>Aplicación base</span>
+        </a>
+    </MudAppBar>
+    <MudMainContent>
+        <div id="main-content" class="app-content">
+            @Body
+        </div>
+    </MudMainContent>
+</MudLayout>
+
+<div id="blazor-error-ui" data-nosnippet>
+    Se produjo un error inesperado.
+    <a href="." class="reload">Recargar</a>
+    <button type="button" class="dismiss" aria-label="Cerrar">×</button>
+</div>
+
+@code {
+    private readonly MudTheme _theme = AppTheme.Create();
+}

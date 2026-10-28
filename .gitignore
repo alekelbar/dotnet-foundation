@@ -1,0 +1,58 @@
+# .NET build artifacts
+**/bin/
+**/obj/
+artifacts/
+publish/
+*.nupkg
+*.snupkg
+
+# Test results and coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# IDE and user-specific settings
+*.csproj.lscache
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+.idea/
+.history/
+
+# Operating system files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Local SQLite databases and sidecar files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Local configuration and credentials (keep shared appsettings files tracked)
+appsettings.Local.json
+appsettings.*.Local.json
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pfx
+*.p12
+*.key
+
+# Runtime logs
+logs/
+*.log
