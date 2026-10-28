@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "alekelbar",
+  "classifications": ["Web", "Blazor", "Clean Architecture"],
+  "identity": "DotnetFoundation.Blazor.Layered",
+  "name": ".NET Foundation — Blazor layered application",
+  "shortName": "blazor-layered",
+  "sourceName": "AppTemplate",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/.git/**",
+            "**/.vs/**",
+            "**/.idea/**",
+            "**/.history/**",
+            "**/.DS_Store",
+            "**/._*",
+            "**/Thumbs.db",
+            "**/Desktop.ini",
+            "**/[Bb]in/**",
+            "**/[Oo]bj/**",
+            "**/artifacts/**",
+            "**/publish/**",
+            "**/TestResults/**",
+            "**/coverage/**",
+            "**/*.coverage",
+            "**/*.coveragexml",
+            "**/*.nupkg",
+            "**/*.snupkg",
+            "**/*.csproj.lscache",
+            "**/*.user",
+            "**/*.suo",
+            "**/*.userosscache",
+            "**/*.sln.docstates",
+            "**/*.db",
+            "**/*.db-*",
+            "**/*.sqlite",
+            "**/*.sqlite-*",
+            "**/*.sqlite3",
+            "**/*.sqlite3-*",
+            "**/appsettings.Local.json",
+            "**/appsettings.*.Local.json",
+            "**/.env",
+            "**/.env.*",
+            "**/*.pfx",
+            "**/*.p12",
+            "**/*.key",
+            "**/logs/**",
+            "**/*.log"
+          ]
+        }
+      ]
+    }
+  ]
+}
