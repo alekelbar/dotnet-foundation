@@ -5,7 +5,7 @@
 - All code must be in English, including identifiers, comments, and in-code documentation.
 - Entity, table, column, and application route names must be in English.
 - Specs and other documents may be in Spanish; their code snippets must be in English. Keep this file in English.
-- User-facing interface text must be in Spanish.
+- User-facing interface language is defined by each feature specification.
 
 ## Architecture guidelines
 

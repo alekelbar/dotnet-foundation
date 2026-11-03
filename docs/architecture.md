@@ -7,7 +7,7 @@ their respective specs.
 
 The application is divided into four projects, one per layer. Each project
 organizes its code by feature. Identifiers, namespaces, tables, and routes must
-be in English; interface text must be in Spanish.
+be in English. User-facing interface language is defined by each feature specification.
 
 ## Structure and responsibility placement
 
@@ -66,7 +66,7 @@ In the following table, responsibility folders are located inside
 | Mutable presentation state | Presentation, `Models/`; separate from inputs, DTOs, and entities. |
 | Pages and dialogs | Presentation, `Pages/` and `Components/`; consume Application services. |
 | Browser integration | Presentation, `Services/` and `wwwroot/`; inner layers have no knowledge of browser APIs or storage. |
-| Spanish labels | Presentation, `Helpers/`; separate from business rules. |
+| UI labels | Presentation, `Helpers/`; separate from business rules. |
 | Host, layout, and theme | Presentation, `Program.cs` and `Components/`; styles follow the [design guide](DESIGN.md). |
 
 Contract enums are independent of domain enums and are converted explicitly.

@@ -155,8 +155,8 @@ The page title is fluid: `clamp(2.25rem, 5vw, 3rem)`; the YAML token expresses
 its maximum size. The remaining scales are in the front matter. MudBlazor
 inherits the family from `AppTheme.cs`; composition styles consume
 `--app-type-*` tokens according to their purpose. Avoid clipping long titles
-and names. Text and actions must be in Spanish, in sentence case, without
-CSS-enforced capitalization.
+and names. User-facing interface language is defined by each feature specification.
+Text and actions use sentence case, without CSS-enforced capitalization.
 
 ## Layout
 
