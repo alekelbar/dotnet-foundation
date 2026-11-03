@@ -4,7 +4,7 @@
   "classifications": ["Web", "Blazor", "Clean Architecture"],
   "identity": "DotnetFoundation.Blazor.Layered",
   "name": ".NET Foundation — Blazor layered application",
-  "shortName": "blazor-layered",
+  "shortName": "net-foundation",
   "sourceName": "AppTemplate",
   "preferNameDirectory": true,
   "tags": {

@@ -106,116 +106,115 @@ components:
     padding: "{spacing.card}"
 ---
 
-# Sistema de diseño
+# Design system
 
 ## Overview
 
-Interfaz clara, tranquila y espaciosa para aplicaciones de uso cotidiano. El
-contenido se lee de izquierda a derecha, con jerarquía tipográfica visible y una
-acción principal fácil de reconocer. Usa fondo gris frío, superficies blancas y
-acento azul. El tema es siempre claro, independientemente del sistema operativo.
-No presupone una actividad, entidad de negocio o sector específico.
+A clear, calm, and spacious interface for everyday applications. Content reads
+from left to right, with a visible typographic hierarchy and an easily recognized
+primary action. Use a cool gray background, white surfaces, and a blue accent.
+The theme is always light, regardless of the operating system. It does not assume
+a specific activity, business entity, or industry.
 
-Esta guía define convenciones generales; la composición de cada pantalla y sus
-recorridos corresponden a su spec. La regla de mantenimiento está en
-[AGENTS.md](../AGENTS.md). El formato sigue la
-[especificación oficial DESIGN.md de Google Stitch](https://github.com/google-labs-code/design.md/blob/main/docs/spec.md)
-(versión alpha, consultada el 27 de octubre de 2026).
+This guide defines general conventions; each screen's composition and flows
+belong in its spec. The maintenance rule is in [AGENTS.md](../AGENTS.md).
+The format follows the
+[official Google Stitch DESIGN.md specification](https://github.com/google-labs-code/design.md/blob/main/docs/spec.md)
+(alpha version, accessed October 27, 2026).
 
 ## Colors
 
-- Azul `primary`: acción principal, selección y foco; texto blanco sobre botones rellenos.
-- `background`: lienzo general. `surface`: barras, controles y contenedores.
-- `on-surface`: texto principal. `secondary`: descripciones y metadatos.
-- `outline`: divisores; `input-border`: contornos de campos.
-- `primary-container` y `empty-container`: fondos suaves para énfasis y estados vacíos.
-- `hover-container`: interacción al pasar el puntero.
-- `success` y `error`: resultados correctos y acciones destructivas o errores.
-  Siempre acompaña el color con texto o iconos.
+- Blue `primary`: primary action, selection, and focus; white text on filled buttons.
+- `background`: overall canvas. `surface`: bars, controls, and containers.
+- `on-surface`: primary text. `secondary`: descriptions and metadata.
+- `outline`: dividers; `input-border`: field outlines.
+- `primary-container` and `empty-container`: subtle backgrounds for emphasis and empty states.
+- `hover-container`: interaction on pointer hover.
+- `success` and `error`: successful outcomes and destructive actions or errors.
+  Always accompany color with text or icons.
 
-La implementación configura roles de MudBlazor en
+The implementation configures MudBlazor roles in
 `src/AppTemplate.Presentation/Components/Theming/AppTheme.cs`.
-`Create()` entrega un tema nuevo para cada instancia del layout: no compartas un
-`MudTheme` mutable entre circuitos.
-`src/AppTemplate.Presentation/wwwroot/theme.css` contiene alias como
-`--app-accent: var(--mud-palette-primary)` y valores visuales complementarios.
-No copies colores de roles MudBlazor en CSS ni crees paletas locales.
+`Create()` returns a fresh theme for each layout instance: do not share a mutable
+`MudTheme` across circuits.
+`src/AppTemplate.Presentation/wwwroot/theme.css` contains aliases such as
+`--app-accent: var(--mud-palette-primary)` and complementary visual values.
+Do not copy MudBlazor role colors into CSS or create local palettes.
 
-Los tokens YAML documentan los valores de referencia; no generan automáticamente
-C# ni CSS. Al cambiar valores, mantén sincronizados esta guía y sus puntos de
-configuración cuando la actualización de la guía esté autorizada.
+YAML tokens document reference values; they do not automatically generate C# or
+CSS. When changing values, keep this guide and its configuration points in sync
+when updating the guide is authorized.
 
 ## Typography
 
-Usa la familia local **Avenir Next**, con alternativas **Avenir**, **Segoe UI** y
-`sans-serif`. No descargues fuentes remotas. La apariencia concreta puede variar
-según las fuentes instaladas.
+Use the local **Avenir Next** family, with **Avenir**, **Segoe UI**, and
+`sans-serif` as fallbacks. Do not download remote fonts. The actual appearance
+may vary depending on the installed fonts.
 
-El título de página es fluido: `clamp(2.25rem, 5vw, 3rem)`; el token YAML expresa
-su tamaño máximo. Las restantes escalas están en el front matter. MudBlazor
-hereda la familia desde `AppTheme.cs`; los estilos de composición consumen los
-tokens `--app-type-*` según su función. Evita recortar títulos y nombres largos.
-Textos y acciones en español, en estilo oración, sin mayúsculas forzadas por CSS.
+The page title is fluid: `clamp(2.25rem, 5vw, 3rem)`; the YAML token expresses
+its maximum size. The remaining scales are in the front matter. MudBlazor
+inherits the family from `AppTheme.cs`; composition styles consume
+`--app-type-*` tokens according to their purpose. Avoid clipping long titles
+and names. Text and actions must be in Spanish, in sentence case, without
+CSS-enforced capitalization.
 
 ## Layout
 
-Contenido fluido con máximo de **1120 px**, centrado y alineado a la izquierda.
-Margen interior de **36 px** en escritorio y **20 px** hasta 600 px de ancho.
-Usa la escala de espaciados según la relación entre elementos: controles,
-grupos, secciones y contenedores. Mantén los controles y diálogos utilizables a
-320 px sin desplazamiento horizontal.
+Fluid content with a maximum width of **1120 px**, centered with left-aligned
+content. Use **36 px** of padding on desktop and **20 px** at widths up to 600 px.
+Use the spacing scale according to the relationship between elements: controls,
+groups, sections, and containers. Keep controls and dialogs usable at 320 px
+without horizontal scrolling.
 
-`wwwroot/app.css` y estilos aislados describen composición y consumen tokens.
-Los valores estructurales como `0`, porcentajes, posiciones, breakpoints y
-geometría de animaciones pueden permanecer en esas hojas. Mantén los estilos de
-cada feature junto a su responsabilidad; evita acoplar componentes internos de
-features diferentes.
+`wwwroot/app.css` and isolated styles describe composition and consume tokens.
+Structural values such as `0`, percentages, positions, breakpoints, and animation
+geometry may remain in those stylesheets. Keep each feature's styles alongside
+its responsibility; avoid coupling internal components from different features.
 
 ## Elevation & Depth
 
-Construye jerarquía con espacio, superficies y divisores. Evita gradientes y
-sombras repetidas en filas. Reserva `--app-dialog-shadow`
-(`0 24px 80px #24324726`) para diálogos y `--app-selected-shadow`
-(`0 1px 3px #2432470d`) para selección cuando sea necesaria.
-El aviso de error y la reconexión tienen tokens compartidos específicos para sus
-sombras y fondos. No definas sombras locales en componentes.
+Build hierarchy with spacing, surfaces, and dividers. Avoid gradients and repeated
+row shadows. Reserve `--app-dialog-shadow` (`0 24px 80px #24324726`) for dialogs
+and `--app-selected-shadow` (`0 1px 3px #2432470d`) for selection when needed.
+The error notice and reconnection UI have dedicated shared tokens for their
+shadows and backgrounds. Do not define local shadows in components.
 
 ## Shapes
 
-Controles MudBlazor con radio predeterminado de **10 px**. La escala complementaria
-incluye controles de 8 px, estados de 6 px, listas de 16 px, diálogos de 18 px e
-iconos de estado vacío de 22 px. Selecciona el radio por función y reutiliza
-`--app-radius-*`; no inventes radios por pantalla.
+MudBlazor controls use a default border radius of **10 px**. The complementary
+scale includes 8 px controls, 6 px status indicators, 16 px lists, 18 px dialogs,
+and 22 px empty-state icons. Select the radius by purpose and reuse
+`--app-radius-*`; do not invent radii for individual screens.
 
 ## Components
 
-Reutiliza MudBlazor para botones, campos delineados, selectores y diálogos.
-Prioriza una acción principal; distingue las destructivas mediante el rol de
-error. En diálogos separa acciones y contenido, con cancelar antes de confirmar.
-Los tokens de componentes describen sus variantes visuales; usa los tokens
-compartidos al implementar un componente que todavía no exista en la base.
+Reuse MudBlazor for buttons, outlined fields, selectors, and dialogs. Prioritize
+one primary action; distinguish destructive actions using the error role.
+In dialogs, separate actions from content, with cancel before confirm.
+Component tokens describe their visual variants; use shared tokens when
+implementing a component that does not yet exist in the base application.
 
-Define carga, vacío, error, selección y deshabilitado cuando el flujo lo requiera.
-Conserva señales de interacción y deshabilitado, foco visible y nombres accesibles
-en acciones que solo muestran iconos. Mantén el orden del foco y su restauración
-al cerrar un diálogo. Respeta `prefers-reduced-motion`.
+Define loading, empty, error, selected, and disabled states when the flow requires
+them. Preserve interaction and disabled-state cues, visible focus, and accessible
+names for icon-only actions. Maintain focus order and restore focus when closing
+a dialog. Respect `prefers-reduced-motion`.
 
-`Components/App.razor` carga MudBlazor, `theme.css`, `app.css` y estilos aislados,
-en ese orden. Los tokens se declaran en `:root` para alcanzar también popovers y
-diálogos fuera del contenido. Conserva solo los overrides globales necesarios y
-comenta su motivo; no agregues familias, paletas, radios ni sombras locales.
+`Components/App.razor` loads MudBlazor, `theme.css`, `app.css`, and isolated styles,
+in that order. Tokens are declared in `:root` so they also reach popovers and
+dialogs outside the content area. Keep only necessary global overrides and
+comment on their purpose; do not add local families, palettes, radii, or shadows.
 
 ## Do's and Don'ts
 
-- Reutiliza roles semánticos y tokens compartidos. Agrega nuevos tokens por función,
-  en inglés, con prefijo `--app-`, una sola vez en `theme.css`.
-- Mantén una acción principal clara y mensajes concretos.
-- Comprueba contraste WCAG AA: 4.5:1 para texto normal, 3:1 para texto grande y
-  señales visuales esenciales de controles. Revisa también hover, foco y error.
-- Revisa teclado, texto largo y móvil después de cambiar el tema.
-- No dependas solo del color para comunicar estados.
-- No agregues fuentes remotas, gradientes decorativos o animaciones automáticas.
-- No dupliques valores del tema en hojas de composición. `transparent` y
-  `currentColor` pueden usarse como valores estructurales.
-- No conviertas esta guía en un inventario de funcionalidades o historial de
-  decisiones: esos detalles pertenecen a sus specs.
+- Reuse semantic roles and shared tokens. Add new tokens by purpose, in English,
+  with the `--app-` prefix, once in `theme.css`.
+- Keep the primary action clear and messages specific.
+- Check WCAG AA contrast: 4.5:1 for normal text, 3:1 for large text and essential
+  visual control cues. Also review hover, focus, and error states.
+- Check keyboard interaction, long text, and mobile layouts after changing the theme.
+- Do not rely on color alone to communicate states.
+- Do not add remote fonts, decorative gradients, or automatic animations.
+- Do not duplicate theme values in composition stylesheets. `transparent` and
+  `currentColor` may be used as structural values.
+- Do not turn this guide into a feature inventory or decision history: those
+  details belong in their specs.
